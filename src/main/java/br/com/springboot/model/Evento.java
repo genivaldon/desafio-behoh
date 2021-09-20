@@ -1,5 +1,6 @@
 package br.com.springboot.model;
 
+//import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +19,7 @@ public class Evento {
 
     private String nome;
     private Integer quantVagas;
+    //private LocalDateTime dataEvento;
 
     @ManyToMany
     private Set<Usuario> usuarios = new HashSet<>();
@@ -26,6 +28,7 @@ public class Evento {
         this.id = id;
         this.nome = nome;
         this.quantVagas = quantVagas;
+        //this.dataEvento = dataEvento;
     }
 
     public Evento() {
@@ -50,7 +53,7 @@ public class Evento {
     public Integer getQuantVagas() {
         return quantVagas;
     }
-
+    
     public void setQuantVagas(Integer quantVagas) {
         this.quantVagas = quantVagas;
     }
@@ -88,4 +91,13 @@ public class Evento {
         return true;
     }
 
+   
+
+   
+
+    
+
+    
+
+    
 }

@@ -1,7 +1,8 @@
 package br.com.springboot.controller;
 
+import br.com.springboot.model.Evento;
+import br.com.springboot.service.EventoService;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
@@ -13,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.springboot.model.Evento;
-import br.com.springboot.service.EventoService;
 
 @RestController
 @RequestMapping(value = "/eventos")
@@ -34,10 +32,9 @@ public class EventoController {
   @ResponseStatus(HttpStatus.CREATED)
   public Evento save(@RequestBody Evento evento) {
     return service.save(evento);
-
   }
 
-  @PostMapping(value = "todos_os_eventos")
+  @GetMapping(value = "todos_os_eventos")
   @ResponseStatus(HttpStatus.OK)
   public List<Evento> getAllEventos() {
     return service.findAll();
@@ -46,7 +43,5 @@ public class EventoController {
   @DeleteMapping(value = "delete_evento/{idEvento}")
   public void delete(@PathVariable Integer idEvento) {
     service.delete(idEvento);
-
   }
-
 }
